@@ -1,7 +1,6 @@
+cd django-ribbit-master
+git push origin master 
 heroku login
-heroku create
-docker ps
+docker login
 heroku container:login
-heroku container:push web -app webapp1
-heroku container:release web -app webapp1
-heroku container:pull web -app webapp1
+heroku container:push pageweb --app dockeribbit

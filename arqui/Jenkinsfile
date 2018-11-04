@@ -1,9 +1,12 @@
 pipeline{
 	agent any
-	stages{
-		stage('Levantar en heroku'){
-			sh 
-			bash ./corro.sh
-		}
+	stage('Pull'){
+		sh './pullgit.sh'
+	}
+	stage('build'){
+		sh './build.sh'
+	}
+	stage('heroku'){
+		sh './heroku.sh'
 	}
 }
