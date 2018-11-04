@@ -1,12 +1,15 @@
 pipeline{
 	agent any
-	stage('Pull'){
-		sh './pullgit.sh'
+	stages {
+		stage('Pull'){
+			sh './pullgit.sh'
+		}
+		stage('build'){
+			sh './build.sh'
+		}
+		stage('heroku'){
+			sh './heroku.sh'
+		}
 	}
-	stage('build'){
-		sh './build.sh'
-	}
-	stage('heroku'){
-		sh './heroku.sh'
-	}
+	
 }
