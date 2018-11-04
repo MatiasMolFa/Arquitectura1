@@ -4,3 +4,4 @@ heroku login
 docker login
 heroku container:login
 heroku container:push pageweb --app dockeribbit
+cd ..
