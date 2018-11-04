@@ -1,3 +1,12 @@
-node {
-	echo 'Hello World'
+pipeline {
+	any agent{}
+	stages{
+		stage('Build'){
+			steps{
+				sh './pullgit.sh'
+				sh './build.sh'
+				sh './heroku.sh'
+			}
+		}
+	}
 }
