@@ -1,20 +1,14 @@
-pipeline {
-	agent any
-	stages {
-	stage ('pull'){
-		steps {
-		sh './pullgit.sh'
-		}
+node {
+	stage('Pull from original GitHub repo') {
+		git 'https://github.com/VMatiasMolFa/Arquitectura1'
 	}
-	stage ('build'){
-		steps{
-		sh './build.sh'
-		}
+	stage('Build container') {
+		sh './sh_files/buildContainer.sh'
 	}
-	stage ('heroku'){
-		steps{
-		sh './heroku.sh'
-		}
-	}
+	//stage('Push to my repo') {
+	//	sh './sh_files/pushToRepo.sh'
+	//}
+	stage('Push to Heroku') {
+		sh './sh_files/pushToHeroku.sh'
 	}
 }
